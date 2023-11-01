@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Age and Time Lived Calculator</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="calculator">
+            <h1>Age and Time Lived Calculator</h1>
+            <div class="input-section">
+                <input type="date" id="date">
+                <button onclick="calAgeAndTimeLived()">Calculate</button>
+            </div>
+            <p id="result"></p>
+        </div>
+    </div>
+
+    <script>
+        let userInput = document.getElementById('date');
+        let result = document.getElementById('result');
+
+        function calAgeAndTimeLived() {
+            let birthDate = new Date(userInput.value);
+            let currentDate = new Date();
+
+            let ageInMilliseconds = currentDate - birthDate;
+            let ageInSeconds = ageInMilliseconds / 1000;
+            let ageInMinutes = ageInSeconds / 60;
+            let ageInHours = ageInMinutes / 60;
+
+            let years = Math.floor(ageInHours / 24 / 365);
+            let months = Math.floor((ageInHours / 24 / 30.44) % 12);
+            let days = Math.floor(ageInHours / 24) % 30;
+            let hours = Math.floor(ageInHours % 24);
+            let minutes = Math.floor(ageInMinutes % 60);
+            let seconds = Math.floor(ageInSeconds % 60);
+
+            let totalHoursLived = Math.floor(ageInHours);
+            let totalMinutesLived = Math.floor(ageInMinutes);
+            let totalSecondsLived = Math.floor(ageInSeconds);
+
+            result.innerHTML = `Age: ${years} years, ${months} months, ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds. Total time lived: ${totalHoursLived} hours, ${totalMinutesLived} minutes, ${totalSecondsLived} seconds.`;
+        }
+    </script>
+</body>
+
+</html>

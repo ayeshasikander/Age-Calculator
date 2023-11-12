@@ -12,7 +12,8 @@ html,body{
     min-height: 100vh;
     color: #fff;
     padding: 10px;
-    background: linear-gradient(135deg,rgb(7, 92, 78),rgb(129, 48, 48));
+    /* background: linear-gradient(135deg,rgb(7, 92, 78),rgb(129, 48, 48)); */
+    background-color: rgb(57, 57, 175);
 }
 .calculator{
     width: 100%;
